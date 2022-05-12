@@ -32,8 +32,8 @@ pipeline {
         
         stage('Deploy') {
             steps {
-              withCredentials([sshUserPrivateKey(credentialsId: 'deployment-tomcat', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
-              sh "curl -v -u 'deployment-tomcat' -T /var/lib/jenkins/workspace/pipeline-project1/target/CalculationMavenApp.war 'http://ec2-35-88-255-15.us-west-2.compute.amazonaws.com:8080/manager/text/deploy?path=/pipeline_project1&update=true'"
+              withCredentials([sshUserPrivateKey(credentialsId: 'linux_tomcat_credentials', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
+              sh "curl -v -u 'linux_tomcat_credentials' -T /var/lib/jenkins/workspace/pipeline-project1/target/CalculationMavenApp.war 'http://ec2-35-88-255-15.us-west-2.compute.amazonaws.com:8080/manager/text/deploy?path=/pipeline_project1&update=true'"
               }
             }
         }
