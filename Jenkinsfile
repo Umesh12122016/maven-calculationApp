@@ -10,7 +10,7 @@ pipeline {
         stage('getscm') {
             steps {
                 // Get some code from a GitHub repository
-               git branch: 'dev', credentialsId: 'git-credentials', url: 'https://github.com/markondareddy/maven-calculationApp.git'
+               git branch: 'dev', credentialsId: 'git-credentials', url: 'https://github.com/Umesh12122016/maven-calculationApp.git'
 
             }
         }
@@ -42,7 +42,7 @@ pipeline {
     
      post {
         always {
-          emailext attachLog: true, body: 'Jenkins URL - $JOB_URL ', recipientProviders: [developers()], subject: 'Jenkins - $JOB_NAME  - $BUILD_NUMBER ', to: 'bandi15713@gmail.com'  
+          emailext attachLog: true, body: 'Jenkins URL - $JOB_URL ', recipientProviders: [developers()], subject: 'Jenkins - $JOB_NAME  - $BUILD_NUMBER ', to: 'hari.k2030@gmail.com'  
             
         }
      }
